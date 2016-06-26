@@ -6,53 +6,53 @@
 
 #-variables
 
-SITES1=(`ls sites-d01`)
-SITES2=(`ls sites-d02`)
-SITES3=(`ls sites-d03`)
-SITES4=(`ls sites-d04`)
+SITES1=(`ls sites-d1`)
+SITES2=(`ls sites-d2`)
+SITES3=(`ls sites-d3`)
+SITES4=(`ls sites-d4`)
 
 #-functions
 
 create_manifest_dir(){
-  mkdir /home/michael/fflip-fw/firmware/manifest
+  mkdir -p /home/michael/fflip-fw/firmware/manifest
 }
 
-copy_manifest_files_d01(){
+copy_manifest_files_d1(){
   for SITE in "${SITES1[@]}"
     do
-      mkdir -p /home/michael/fflip-fw/firmware/manifest/d01/$SITE/upgrade
-      sshpass -p 'mypwd' scp -v -r collimas@remote.awbev.de:/firmware/d01/$SITE/upgrade/stable.manifest /home/michael/fflip-fw/firmware/manifest/d01/$SITE/upgrade
+      mkdir -p /home/michael/fflip-fw/firmware/manifest/d1/$SITE/upgrade
+      sshpass -p 'Ncar$2K15' scp -v -r collimas@remote.awbev.de:/firmware/d1/$SITE/upgrade/stable.manifest /home/michael/fflip-fw/firmware/manifest/d1/$SITE/upgrade
   done
 }
 
-copy_manifest_files_d02(){
+copy_manifest_files_d2(){
   for SITE in "${SITES2[@]}"
     do
-      mkdir -p /home/michael/fflip-fw/firmware/manifest/d02/$SITE/upgrade
-      sshpass -p 'mypwd' scp -v -r collimas@remote.awbev.de:/firmware/d02/$SITE/upgrade/stable.manifest /home/michael/fflip-fw/firmware/manifest/d02/$SITE/upgrade
+      mkdir -p /home/michael/fflip-fw/firmware/manifest/d2/$SITE/upgrade
+      sshpass -p 'Ncar$2K15' scp -v -r collimas@remote.awbev.de:/firmware/d2/$SITE/upgrade/stable.manifest /home/michael/fflip-fw/firmware/manifest/d2/$SITE/upgrade
   done
 }
 
-copy_manifest_files_d03(){
+copy_manifest_files_d3(){
   for SITE in "${SITES3[@]}"
     do
-      mkdir -p /home/michael/fflip-fw/firmware/manifest/d03/$SITE/upgrade
-      sshpass -p 'mypwd' scp -v -r collimas@remote.awbev.de:/firmware/d03/$SITE/upgrade/stable.manifest /home/michael/fflip-fw/firmware/manifest/d03/$SITE/upgrade
+      mkdir -p /home/michael/fflip-fw/firmware/manifest/d3/$SITE/upgrade
+      sshpass -p 'Ncar$2K15' scp -v -r collimas@remote.awbev.de:/firmware/d3/$SITE/upgrade/stable.manifest /home/michael/fflip-fw/firmware/manifest/d3/$SITE/upgrade
   done
 }
 
-copy_manifest_files_d04(){
+copy_manifest_files_d4(){
   for SITE in "${SITES4[@]}"
     do
-      mkdir -p /home/michael/fflip-fw/firmware/manifest/d04/$SITE/upgrade
-      sshpass -p 'mypwd' scp -v -r collimas@remote.awbev.de:/firmware/d04/$SITE/upgrade/stable.manifest /home/michael/fflip-fw/firmware/manifest/d04/$SITE/upgrade
+      mkdir -p /home/michael/fflip-fw/firmware/manifest/d4/$SITE/upgrade
+      sshpass -p 'Ncar$2K15' scp -v -r collimas@remote.awbev.de:/firmware/d4/$SITE/upgrade/stable.manifest /home/michael/fflip-fw/firmware/manifest/d4/$SITE/upgrade
   done
 }
 
 #-main
 
 create_manifest_dir
-copy_manifest_files_d01
-copy_manifest_files_d02
-copy_manifest_files_d03
-copy_manifest_files_d04
+copy_manifest_files_d1
+copy_manifest_files_d2
+copy_manifest_files_d3
+copy_manifest_files_d4
