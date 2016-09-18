@@ -26,6 +26,7 @@ usage()
   -I <"String"> Sets the path where to look for the image binaries.
   -A <"String"> Sets the path where to create the Zip-Archives.
   -L <"String"> Sets the path for the error log.
+  -v <"String"> Sets version information.
 EOF
 }
 
@@ -35,7 +36,7 @@ if [ ! -x /usr/bin/zip ]; then
   exit 1
 fi
 
-while getopts .hI:A:L:. OPTION
+while getopts .hI:A:L:v:. OPTION
 do
   case $OPTION in
     h)
@@ -49,6 +50,9 @@ do
       ;;
     L)
       ERROR_LOG="${OPTARG}"
+      ;;
+    v)
+      VERSION="${OPTARG}"
       ;;
     ?)
       usage
@@ -68,7 +72,7 @@ for town in "${D1[@]}"
     fi
     if [ -e "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip ]
     then
-      /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
+      /bin/rm "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip
     fi
     /usr/bin/zip -j "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d1/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
     /usr/bin/zip -j "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d1/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
@@ -82,7 +86,7 @@ for town in "${D2[@]}"
     fi
     if [ -e "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip ]
     then
-      /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
+      /bin/rm "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip
     fi
     /usr/bin/zip -j "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d2/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
     /usr/bin/zip -j "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d2/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
@@ -96,7 +100,7 @@ for town in "${D3[@]}"
     fi
     if [ -e "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip ]
     then
-      /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
+      /bin/rm "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip
     fi
     /usr/bin/zip -j "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d3/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
     /usr/bin/zip -j "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d3/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
@@ -110,7 +114,7 @@ for town in "${D4[@]}"
     fi
     if [ -e "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip ]
     then
-      /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
+      /bin/rm "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip
     fi
     /usr/bin/zip -j "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d4/"${town}"/factory/*.bin > /dev/null 2> "${ERROR_LOG}"
     /usr/bin/zip -j "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d4/"${town}"/sysupgrade/*.bin > /dev/null 2> "${ERROR_LOG}"
