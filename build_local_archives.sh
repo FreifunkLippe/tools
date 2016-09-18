@@ -20,6 +20,10 @@ if [ ! -x /usr/bin/zip ]; then
   exit 1
 fi
 
+if [ ! -d "${ARCHIVE_PATH}" ]; then
+  mkdir -p "${ARCHIVE_PATH}"
+fi
+
 for town in "${D1[@]}"
   do
     if [ -e "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip ]
