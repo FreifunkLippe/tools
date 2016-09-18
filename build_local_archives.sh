@@ -25,7 +25,12 @@ for town in "${D1[@]}"
     then
       /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
     fi
+    if [ -e "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip ]
+    then
+      /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
+    fi
     /usr/bin/zip "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d1/"${town}"/factory/*.bin > /dev/null 2> ~/fflip-fw/fehler.txt
+    /usr/bin/zip "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d1/"${town}"/sysupgrade/*.bin > /dev/null 2> ~/fflip-fw/fehler.txt
 done
 
 for town in "${D2[@]}"
@@ -34,7 +39,12 @@ for town in "${D2[@]}"
     then
       /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
     fi
+    if [ -e "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip ]
+    then
+      /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
+    fi
     /usr/bin/zip "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d2/"${town}"/factory/*.bin > /dev/null 2> ~/fflip-fw/fehler.txt
+    /usr/bin/zip "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d2/"${town}"/sysupgrade/*.bin > /dev/null 2> ~/fflip-fw/fehler.txt
 done
 
 for town in "${D3[@]}"
@@ -43,7 +53,12 @@ for town in "${D3[@]}"
     then
       /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
     fi
+    if [ -e "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip ]
+    then
+      /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
+    fi
     /usr/bin/zip "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d3/"${town}"/factory/*.bin > /dev/null 2> ~/fflip-fw/fehler.txt
+    /usr/bin/zip "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d3/"${town}"/sysupgrade/*.bin > /dev/null 2> ~/fflip-fw/fehler.txt
 done
 
 for town in "${D4[@]}"
@@ -52,5 +67,10 @@ for town in "${D4[@]}"
     then
       /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
     fi
+    if [ -e "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip ]
+    then
+      /bin/rm "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip
+    fi
     /usr/bin/zip "${ARCHIVE_PATH}/All_factory_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d4/"${town}"/factory/*.bin > /dev/null 2> ~/fflip-fw/fehler.txt
+    /usr/bin/zip "${ARCHIVE_PATH}/All_sysupgrade_images_for_${town}_${VERSION}".zip "${IMAGE_PATH}"/d4/"${town}"/sysupgrade/*.bin > /dev/null 2> ~/fflip-fw/fehler.txt
 done
